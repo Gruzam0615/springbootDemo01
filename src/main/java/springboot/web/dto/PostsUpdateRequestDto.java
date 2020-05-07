@@ -3,6 +3,7 @@ package springboot.web.dto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import springboot.domain.posts.Posts;
 
 @Getter
 @NoArgsConstructor
@@ -16,5 +17,4 @@ public class PostsUpdateRequestDto {
 		this.title = title;
 		this.content = content;
 	}
-	
 }

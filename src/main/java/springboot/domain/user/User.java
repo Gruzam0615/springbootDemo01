@@ -17,24 +17,25 @@ import springboot.domain.BaseTimeEntity;
 @Getter
 @Entity
 public class User extends BaseTimeEntity {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long Id;
+	private Long id;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String name;
 	
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String email;
 	
 	@Column
 	private String picture;
 	
+	// @Enumerated : Enum 값을 저장
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Role role;
-		
+	
 	@Builder
 	public User(String name, String email, String picture, Role role) {
 		this.name = name;
@@ -52,5 +53,4 @@ public class User extends BaseTimeEntity {
 	public String getRoleKey() {
 		return this.role.getKey();
 	}
-
 }

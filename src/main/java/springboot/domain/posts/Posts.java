@@ -11,12 +11,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import springboot.domain.BaseTimeEntity;
 
-
 @Getter
 @NoArgsConstructor
 @Entity
+
 public class Posts extends BaseTimeEntity{
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -40,4 +40,5 @@ public class Posts extends BaseTimeEntity{
 		this.title = title;
 		this.content = content;
 	}
+	
 }

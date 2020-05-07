@@ -18,10 +18,11 @@ public class IndexControllerTest {
 	
 	@Test
 	public void 메인페이지_로딩() {
+
 		String html = this.restTemplate.getForObject("/", String.class);
 		System.out.println(html);
 		
-		Assertions.assertThat(html).contains("<title>스프링 부트 웹 서비스</title>");
+		Assertions.assertThat(html).contains("스프링 부트로 시작하는 웹 서비스");
 	}
 
 }

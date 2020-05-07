@@ -20,29 +20,25 @@ public class PostsApiController {
 
 	private final PostsService postsService;
 	
-	// POST 방식(method)은 요청 본문(request body)에 서버로 전달되는 내용(request parameter)을 포함해서 전달하는 방식
 	@PostMapping("/api/v1/posts")
 	public Long save(@RequestBody PostsSaveRequestDto requestDto) {
+		// TODO return postsService.save(requestDto);
 		return postsService.save(requestDto);
 	}
 	
-	// 조회 => GET
 	@GetMapping("/api/v1/posts/{id}")
 	public PostsResponseDto findById(@PathVariable Long id) {
-		return postsService.findById(id);		
+		return postsService.findById(id);
 	}
 	
-	// 수정 => PUT
 	@PutMapping("/api/v1/posts/{id}")
 	public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
 		return postsService.update(id, requestDto);
 	}
-	
-	//삭제
+
 	@DeleteMapping("/api/v1/posts/{id}")
 	public Long delete(@PathVariable Long id) {
 		postsService.delete(id);
 		return id;
 	}
-
 }

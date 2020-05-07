@@ -21,6 +21,7 @@ public class PostsService {
 
 	private final PostsRepository postsRepository;
 	
+	// 
 	@Transactional(readOnly = true)
 	public List<PostsListResponseDto> findAllDesc() {
 		/* 옛날 방식 */
@@ -39,7 +40,7 @@ public class PostsService {
 		/* 한번 더 축약 */
 		// return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
 	}
-
+	
 	@Transactional
 	public Long save(PostsSaveRequestDto requestDto) {
 		return postsRepository.save(requestDto.toEntity()).getId();
@@ -55,7 +56,6 @@ public class PostsService {
 		}
 	}
 
-	@Transactional
 	public Long update(Long id, PostsUpdateRequestDto requestDto) {
 		Optional<Posts> optional = postsRepository.findById(id);
 		if (optional.isPresent()) {
@@ -71,6 +71,4 @@ public class PostsService {
 	public void delete(Long id) {
 		postsRepository.deleteById(id);
 	}
-
-	
 }

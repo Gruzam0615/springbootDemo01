@@ -16,19 +16,21 @@ import springboot.web.dto.PostsResponseDto;
 @Controller
 public class IndexController {
 
+	
 	private final PostsService postsService;
 	private final HttpSession httpSession;
+	
 	
 	@GetMapping("/")
 	public String index(Model model) {
 		model.addAttribute("posts", postsService.findAllDesc());
-		//로그인한 사용자(세션 유무)이면 userName을 템플릿에 전달
-		SessionUser user = (SessionUser)httpSession.getAttribute("user");
+		
+		// 로그인한 사용자(세션 유무로 판단)이면 userName을 템플릿으로 전달
+		SessionUser user= (SessionUser)httpSession.getAttribute("user");
 		if (user != null) {
-            model.addAttribute("loginUserName", user.getName());
-        }
-
-		return "index";    
+			model.addAttribute("LoginUserName", user.getName());
+		}
+		return "index"; // <== src/main/resources/templates/index.mustache 파일을 반환
 	}
 	
 	@GetMapping("/posts/save")
@@ -37,12 +39,10 @@ public class IndexController {
 	}
 	
 	@GetMapping("/posts/update/{id}")
-	public String postsUdate(@PathVariable Long id, Model model) {
+	public String postsUpdate(@PathVariable Long id, Model model) {
 		PostsResponseDto dto = postsService.findById(id);
 		model.addAttribute("post", dto);
-		
-		
 		return "posts-update";
 	}
-	
+
 }

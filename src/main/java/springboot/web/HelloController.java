@@ -8,15 +8,17 @@ import springboot.web.dto.HelloResponseDto;
 
 @RestController
 public class HelloController {
-	
-	// @RequestMapping(value = "/hello", method = RequestMethod.GET)
-	// @RequestMapping("/hello")
+
+	// 아래 세 방식 다 같은 뜻이다.
+	//@RequestMapping(value = "/hello", method = RequstMethod.GET)
+	//@RequestMapping("/hello")
 	@GetMapping("/hello")
+	
 	public String hello() {
 		return "hello";
 	}
 	
-	// http://localhost:8080/hello/dto?name=ooo&amount=ooo
+	// http://localhost:8080/hello/dto?name=honggildong&amount=23
 	@GetMapping("/hello/dto")
 	public HelloResponseDto helloDto(@RequestParam("name") String name, @RequestParam("amount") int amount) {
 		return new HelloResponseDto(name, amount);
