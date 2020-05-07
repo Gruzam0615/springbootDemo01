@@ -21,7 +21,7 @@ before_deploy:
 deploy:
     - provideer: s3
       access_key_id: $AWS_ACCESS_KEY
-      secret_access_key: $Access_Key_Id
+      secret_access_key: $ACCESS_SECRET_KEY
       bucket: a1student8-springboot-webservice
       region: ap-northeast-2
       skip_cleanup: true
