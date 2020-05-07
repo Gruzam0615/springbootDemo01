@@ -13,6 +13,22 @@ before_install:
     - chmod +x ./gradlew
 script: "./gradlew clean build"
 
+before_deploy:
+    - zip -r springboot-webservice *    
+    - mkdir -p deploy
+    - mv springboot-webservice.zip deploy/springboot-webservice.zip
+    
+deploy:
+    - provideer: s3
+      access_kdey_id: $AWS_ACCESS_KEY
+      secret_access_key: $Access_Key_Id
+      bucket: a1student8-springboot-webservice
+      region: ap-northeast-2
+      skip_cleanup: true
+      acl: private
+      local_dir: deploy
+      wait-until-deployed: true
+      
 notification:
     email:
         recipients:
