@@ -28,7 +28,7 @@ before_deploy:
     - mv before-deploy/before-deploy.zip deploy/springboot-webservice.zip
 
 deploy:
-    - provideer: s3
+    - provider: s3
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $ACCESS_SECRET_KEY
       bucket: a1student8-springboot-webservice
