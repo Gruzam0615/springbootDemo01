@@ -1,5 +1,6 @@
-/application-oauth.properties
-/application-real-db.properties
+#connection_information
+application-oauth.properties
+application-real-db.properties
 
 HELP.md
 .gradle
