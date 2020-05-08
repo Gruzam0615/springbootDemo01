@@ -45,7 +45,7 @@ deploy:
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $ACCESS_SECRET_KEY
       bucket: a1student8-springboot-webservice
-      key: springboot-webservice.zip
+      key: springboot-webservice-ec2-08.zip
       bundle_type: zip
       application: springboot-webservice-ec2-8
       deployment_group: springboot-webservice-group
