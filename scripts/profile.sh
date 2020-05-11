@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 #쉬고있는 프로파일 찾기
 function find_idle_profile()
 {
