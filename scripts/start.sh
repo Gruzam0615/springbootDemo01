@@ -12,7 +12,7 @@ echo "> cp $REPOSITORY/zip/*.war $REPOSITORY/"
 cp $REPOSITORY/zip/*.war ${REPOSITORY}/
 
 
-JAR_NAME=$(ls -tr $REPOSITORY/ | grep war | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY | grep war | tail -n 1)
 
 IDLE_PROFILE=$(find_idle_profile)
 
