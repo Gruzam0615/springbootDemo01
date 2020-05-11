@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2
+REPOSITORY=/home/ec2-user/app/step2/
 
 echo "> $REPOSITORY 디렉터리로 이동"
 cd $REPOSITORY
@@ -24,5 +24,4 @@ fi
 JAR_NAME=$(ls -tr $REPOSITORY/ | grep war | tail -n 1)
 echo "> 새 애플리케이션($JAR_NAME) 배포"
 nohup java -jar \
-    -Dspring.config.location=classpath:/application.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real \
-    $JAR_NAME > $REPOSITORY/$JAR_NAME 2>&1 &
+    -Dspring.config.location=classpath:/application.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties -Dspring.profiles.active=real \$REPOSITORY/$JAR_NAME 2>&1 &
