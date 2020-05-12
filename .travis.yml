@@ -4,25 +4,22 @@ jdk:
 branches:
     only:
         - master
-        
 cache:
     directories:
         - '$HOME/.m2/repository'
         - '$HOME/.gradle'
+
 before_install:
     - chmod +x ./gradlew
+    
 script: "./gradlew clean build"
 
-
 before_deploy:
-    # 현재 위치의 모든 파일을 springboot-webservice 이름으로 압축
     #- zip -r springboot-webservice *
-    # Travis CI 실행되는 위치에 deploy 디렉터리를 생성
     #- mkdir -p deploy
-    # 압축 파일을 deploy 디렉터리로 이동
     #- mv springboot-webservice.zip deploy/springboot-webservice.zip
     
-    #before-deploy는 배포 파일만 선별
+    # Select deploy Files
     - mkdir -p before-deploy
     - cp scripts/*.sh before-deploy/
     - cp appspec.yml before-deploy/
@@ -32,35 +29,11 @@ before_deploy:
     
     - cd .. && mkdir -p deploy
     - mv before-deploy/before-deploy.zip deploy/springboot-webservice.zip
-
+    
 deploy:
     - provider: s3
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $ACCESS_SECRET_KEY
-<<<<<<< HEAD
-      bucket: a2student10-springboot-webservice
-      region: ap-southeast-2
-      skip_cleanup: true
-      acl: private
-      local_dir: deploy
-      wait-until-deployed: true
-      
-    - provider: codedeploy
-      access_key_id: $AWS_ACCESS_KEY
-      secret_access_key: $ACCESS_SECRET_KEY
-      bucket: a2student10-springboot-webservice
-      key: springboot-webservice.zip
-      bundle_type: zip
-      application: springboot-webservice
-      deployment_group: springboot-webservice-group
-      region: ap-southeast-2
-      wait-until-deployed: true
-      
-notification:
-    email:
-        recipients:
-            - charmce101@gmail.com
-=======
       bucket: a1student8-springboot-webservice
       region: ap-northeast-2
       skip_cleanup: true
@@ -68,7 +41,7 @@ notification:
       local_dir: deploy
       wait-until-deployed: true
       
-      - provier: codedeploy
+    - provier: codedeploy
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $ACCESS_SECRET_KEY
       bucket: a1student8-springboot-webservice
@@ -83,4 +56,3 @@ notification:
     email:
         recipients:
             - gruzam0615@gmail.com
->>>>>>> branch 'master' of https://github.com/Gruzam0615/springbootDemo01.git
