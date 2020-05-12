@@ -1,3 +1,6 @@
+application.properties
+application-real.properties
+
 HELP.md
 .gradle
 build/
