@@ -1,5 +1,5 @@
-application.properties
-application-real.properties
+application-oauth.properties
+application-real-db.properties
 
 HELP.md
 .gradle
