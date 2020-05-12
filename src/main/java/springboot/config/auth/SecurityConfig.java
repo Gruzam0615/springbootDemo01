@@ -32,15 +32,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// 설정된 값을 제외한 나머지에 대해서는 인증 받은 사용자만 허용
 				.anyRequest().authenticated()
 		.and()
-				.logout()
-					.logoutSuccessUrl("/")
+			.logout()
+				.logoutSuccessUrl("/")
 		.and()
 			// oauth2Login 기능에 대해서 정의
-				.oauth2Login()
+			.oauth2Login()
 				// Oauth2 로그인에 성공했을 때 사용자 정보를 가져오는 방법을 설정
-					.userInfoEndpoint()
-						// 소셜 로그인에 성공했을 때 후속 조치를 구현한 구현체를 등록
-						.userService(customOAuth2UserService);
+				.userInfoEndpoint()
+					// 소셜 로그인에 성공했을 때 후속 조치를 구현한 구현체를 등록
+					.userService(customOAuth2UserService);
 	}
 	
 	
