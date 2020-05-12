@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 public class ProfileController {
+
 	private final Environment env;
 	
 	@GetMapping("/profile")
@@ -22,7 +23,5 @@ public class ProfileController {
 		List<String> realProfiles = Arrays.asList("real", "real1", "real2");
 		return profiles.stream().filter(realProfiles::contains).findAny().orElse(defaultProfile);
 	}
-
 	
-
 }
