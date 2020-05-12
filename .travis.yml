@@ -37,6 +37,7 @@ deploy:
     - provider: s3
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $ACCESS_SECRET_KEY
+<<<<<<< HEAD
       bucket: a2student10-springboot-webservice
       region: ap-southeast-2
       skip_cleanup: true
@@ -59,3 +60,27 @@ notification:
     email:
         recipients:
             - charmce101@gmail.com
+=======
+      bucket: a1student8-springboot-webservice
+      region: ap-northeast-2
+      skip_cleanup: true
+      acl: private
+      local_dir: deploy
+      wait-until-deployed: true
+      
+      - provier: codedeploy
+      access_key_id: $AWS_ACCESS_KEY
+      secret_access_key: $ACCESS_SECRET_KEY
+      bucket: a1student8-springboot-webservice
+      key: springboot-webservice.zip
+      bundle_type: zip
+      application: springboot-webservice-ec2-8
+      deployment_group: springboot-webservice-group
+      region: ap-northeast-2
+      wait-until-deployed: true
+      
+notification:
+    email:
+        recipients:
+            - gruzam0615@gmail.com
+>>>>>>> branch 'master' of https://github.com/Gruzam0615/springbootDemo01.git
