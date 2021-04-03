@@ -9,11 +9,9 @@ import springboot.web.dto.HelloResponseDto;
 @RestController
 public class HelloController {
 
-	// 아래 세 방식 다 같은 뜻이다.
 	//@RequestMapping(value = "/hello", method = RequstMethod.GET)
 	//@RequestMapping("/hello")
-	@GetMapping("/hello")
-	
+	@GetMapping("/hello")	
 	public String hello() {
 		return "hello";
 	}

@@ -6,11 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import lombok.RequiredArgsConstructor;
 import springboot.config.auth.dto.SessionUser;
 import springboot.service.PostsService;
 import springboot.web.dto.PostsResponseDto;
+import springboot.web.dto.PostsUpdateViewCountDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -30,6 +32,7 @@ public class IndexController {
 		if (user != null) {
 			model.addAttribute("LoginUserName", user.getName());
 		}
+		
 		return "index"; // <== src/main/resources/templates/index.mustache 파일을 반환
 	}
 	
@@ -44,5 +47,11 @@ public class IndexController {
 		model.addAttribute("post", dto);
 		return "posts-update";
 	}
-
+	
+	@GetMapping("/*")
+	public String errorPage() {
+		return "error";
+	}
+	
+	
 }

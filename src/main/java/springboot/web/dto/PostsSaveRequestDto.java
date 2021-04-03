@@ -12,15 +12,17 @@ public class PostsSaveRequestDto {
 	private String title;
 	private String content;
 	private String author;
+	private int viewcount;
 	
 	@Builder
-	public PostsSaveRequestDto(String title, String content, String author) {
+	public PostsSaveRequestDto(String title, String content, String author, int viewcount) {
 		this.title = title;
 		this.content = content;
 		this.author = author;
+		this.viewcount = viewcount;
 	}
 	
 	public Posts toEntity() {
-		return Posts.builder().title(this.title).content(this.content).author(this.author).build();
+		return Posts.builder().title(this.title).content(this.content).author(this.author).viewcount(this.viewcount).build();
 	}
 }

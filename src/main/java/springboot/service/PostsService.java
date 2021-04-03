@@ -14,6 +14,7 @@ import springboot.web.dto.PostsListResponseDto;
 import springboot.web.dto.PostsResponseDto;
 import springboot.web.dto.PostsSaveRequestDto;
 import springboot.web.dto.PostsUpdateRequestDto;
+import springboot.web.dto.PostsUpdateViewCountDto;
 
 @RequiredArgsConstructor
 @Service
@@ -67,8 +68,20 @@ public class PostsService {
 		}
 	}
 	
+	public Long updateViewCount(Long id, PostsUpdateViewCountDto vcDto) {
+		Optional<Posts> optional = postsRepository.findById(id);
+		if (optional.isPresent()) {
+			Posts entity = optional.get();
+			entity.updateViewCount(vcDto.getViewCount());
+			return postsRepository.save(entity).getId();
+		} else {
+			throw new IllegalArgumentException("일치하는 정보가 존재하지 않습니다.");
+		}
+	}
+	
 	@Transactional
 	public void delete(Long id) {
 		postsRepository.deleteById(id);
 	}
+	
 }

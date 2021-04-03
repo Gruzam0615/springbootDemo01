@@ -13,14 +13,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import springboot.config.auth.SecurityConfig;
-
 // 스프링부트 테스트와 JUnit 사이에 연결자 역할
 @RunWith(SpringRunner.class)
 // @Controller, @ControllerAdvice와 같은 애노테이션을 사용할 수 있도록 지원
 @WebMvcTest(controllers = HelloController.class, 
 excludeFilters = {
-	@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+//	@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
 }
 )
 

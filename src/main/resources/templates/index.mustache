@@ -1,12 +1,7 @@
-{{>layout/header}}
-	<h1>Springboot on Ec2</h1>
-	<h2>Travis_CI, S3, Code Deploy를 활용한 어플리케이션 배포</h2>
-	<h2>nginx를 활용한 애플리케이션 프록시 설정 서비스를 정지시키지 않고 최신판 배포하기 테스트</h2>
+{{>layout/header}}	
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
-				<a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-				
 				<!-- userName 존재하는 경우 -->
 				{{#LoginUserName}}
 					Logged in as: <span id="user">{{LoginUserName}}</span>
@@ -30,22 +25,25 @@
 			<th>게시글 번호</th>
 			<th>제목</th>
 			<th>작성자</th>
-			<th>최종수정일</th>
+			<th>조회수</th>
+			<th>최종수정일</th>			
 		</tr>
 	</thead>
 	<tbody id="tbody">
 	{{#posts}}
 		<tr>
-			<td>{{id}}</td>
-			<!--
-			<td>{{title}}</td>
-			-->
-			<td><a href="/posts/update/{{id}}">{{title}}</a></td>
+			<td class="idx" id={{id}}>{{id}}</td>
+			<!-- <td>{{title}}</td> -->
+			<td><a href="/posts/update/{{id}}" id={{id}}  class="btn-read" onclick="updateViewCount(this.id)">{{title}}</a></td>
 			<td>{{author}}</td>
+			<td class="vcx" id="viewCount">{{viewcount}}</td>
 			<td>{{modifiedDate}}</td>
 		</tr>
 	{{/posts}}
 	</tbody>
 	</table>
+	<div>
+		<a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+	</div>				
 	
 {{>layout/footer}}

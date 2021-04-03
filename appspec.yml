@@ -13,7 +13,7 @@ permissions:
       
 hooks:
     AfterInstall:
-        - location: stop.sh # 엔진엑스와 연결되지 않은 스프링부트 애플리케이션이 존재하는 경우 삭제
+        - location: stop.sh # nginx와 연결되지 않은 스프링부트 애플리케이션이 존재하는 경우 삭제
           timeout: 60
           runas: ec2-user
     ApplicationStart:

@@ -13,6 +13,7 @@ import springboot.service.PostsService;
 import springboot.web.dto.PostsResponseDto;
 import springboot.web.dto.PostsSaveRequestDto;
 import springboot.web.dto.PostsUpdateRequestDto;
+import springboot.web.dto.PostsUpdateViewCountDto;
 
 @RequiredArgsConstructor
 @RestController
@@ -35,10 +36,17 @@ public class PostsApiController {
 	public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
 		return postsService.update(id, requestDto);
 	}
+	
+	@PutMapping("/api/v1/posts/updateVC/{id}")
+	public Long updateViewCount(@PathVariable Long id, @RequestBody PostsUpdateViewCountDto vcDto) {
+		return postsService.updateViewCount(id, vcDto);
+	}
 
 	@DeleteMapping("/api/v1/posts/{id}")
 	public Long delete(@PathVariable Long id) {
 		postsService.delete(id);
 		return id;
 	}
+	
+	
 }
