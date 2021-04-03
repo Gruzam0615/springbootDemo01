@@ -1,2 +1,7 @@
-# springbootDemo01
-2020 Springboot 실습
+Springboot Simple Board
+=======================
+
+# 다음의 세가지의 기능을 갖는 간단한 게시판 기능
+- 글 쓰기
+- 글 조회, 수정, 삭제
+- 글 조회수 표시
