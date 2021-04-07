@@ -1,7 +1,9 @@
 Springboot Simple Board
 =======================
-Springboot, H2-database 활용
----------------------------
+# 사용기술
+- Springboot
+- H2Database
+- Mustach Template
 
 # 다음의 세가지의 기능을 갖는 간단한 게시판 기능
 - 글 쓰기
