@@ -61,7 +61,7 @@ public class PostsService {
 		Optional<Posts> optional = postsRepository.findById(id);
 		if (optional.isPresent()) {
 			Posts entity = optional.get();
-			entity.update(requestDto.getTitle(), requestDto.getContent());
+			entity.update(requestDto.getModifiedTime(),requestDto.getTitle(), requestDto.getContent());
 			return postsRepository.save(entity).getId();
 		} else {
 			throw new IllegalArgumentException("일치하는 정보가 존재하지 않습니다.");

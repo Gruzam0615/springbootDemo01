@@ -6,13 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import lombok.RequiredArgsConstructor;
 import springboot.config.auth.dto.SessionUser;
 import springboot.service.PostsService;
 import springboot.web.dto.PostsResponseDto;
-import springboot.web.dto.PostsUpdateViewCountDto;
 
 @RequiredArgsConstructor
 @Controller
